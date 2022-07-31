@@ -1,18 +1,21 @@
 
 const startBtn = document.querySelector('button[data-start]');
 const stopBtn = document.querySelector('button[data-stop]');
-//запускаем таймер 
+
+stopBtn.setAttribute('disabled', false);
+ //запускаем таймер
 startBtn.addEventListener("click", () => {
-    colorTimerId = setInterval(() => {
+    timerId = setInterval(() => {
         document.body.style.backgroundColor = getRandomHexColor();
     }, 1000);
-    startBtn.setAttribute('disabled', false);//делаем кнопку не активной
+  stopBtn.removeAttribute('disabled', true);//делаем кнопку активной
+  startBtn.setAttribute('disabled', false);//делаем кнопку не активной
 });
 //останавливаем таймер
 stopBtn.addEventListener("click", () => {
-  clearInterval(colorTimerId);
-    console.log(`Interval with id ${colorTimerId} has stopped!`);
-    startBtn.removeAttribute('disabled', true);//делаем кнопку активной
+  clearInterval(timerId);   
+  startBtn.removeAttribute('disabled', true);
+  stopBtn.setAttribute('disabled', false);
 });
 //генерим случайный цвет
 function getRandomHexColor() {
