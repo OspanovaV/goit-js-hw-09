@@ -5,7 +5,7 @@ const stopBtn = document.querySelector('button[data-stop]');
 stopBtn.setAttribute('disabled', false);
  //запускаем таймер
 startBtn.addEventListener("click", () => {
-    timerId = setInterval(() => {
+  setInterval(() => {
         document.body.style.backgroundColor = getRandomHexColor();
     }, 1000);
   stopBtn.removeAttribute('disabled', true);//делаем кнопку активной
@@ -13,7 +13,7 @@ startBtn.addEventListener("click", () => {
 });
 //останавливаем таймер
 stopBtn.addEventListener("click", () => {
-  clearInterval(timerId);   
+  clearInterval();   
   startBtn.removeAttribute('disabled', true);
   stopBtn.setAttribute('disabled', false);
 });
