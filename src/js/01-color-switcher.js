@@ -1,4 +1,3 @@
-
 const startBtn = document.querySelector('button[data-start]');
 const stopBtn = document.querySelector('button[data-stop]');
 
@@ -8,8 +7,8 @@ startBtn.addEventListener("click", () => {
   setInterval(() => {
         document.body.style.backgroundColor = getRandomHexColor();
     }, 1000);
-  stopBtn.removeAttribute('disabled', true);//делаем кнопку активной
-  startBtn.setAttribute('disabled', false);//делаем кнопку не активной
+  stopBtn.removeAttribute('disabled', true);
+  startBtn.setAttribute('disabled', false);
 });
 //останавливаем таймер
 stopBtn.addEventListener("click", () => {
