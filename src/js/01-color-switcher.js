@@ -1,18 +1,20 @@
 const startBtn = document.querySelector('button[data-start]');
 const stopBtn = document.querySelector('button[data-stop]');
 
+let timerId = null;
+
 stopBtn.setAttribute('disabled', false);
  //запускаем таймер
 startBtn.addEventListener("click", () => {
-  setInterval(() => {
+  timerId = setInterval(() => {
         document.body.style.backgroundColor = getRandomHexColor();
     }, 1000);
   stopBtn.removeAttribute('disabled', true);
   startBtn.setAttribute('disabled', false);
 });
-//останавливаем таймер
+// останавливаем таймер
 stopBtn.addEventListener("click", () => {
-  clearInterval();   
+  clearInterval(timerId);   
   startBtn.removeAttribute('disabled', true);
   stopBtn.setAttribute('disabled', false);
 });
