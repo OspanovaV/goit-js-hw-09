@@ -7,21 +7,20 @@ formRef.addEventListener('submit', onSubmitForm);
 function onSubmitForm(evt) {
   evt.preventDefault();
 
-  let delay = Number(formRef.delay.value);
+  const delayEl = Number(formRef.delay.value);
   const step = Number(formRef.step.value);
   const amount = Number(formRef.amount.value);
+  let delay = delayEl; 
 
-  for (let position = 1; position <= amount; position += 1) {
-    if (position !== 1) {
-      delay += step;
-    }
+  for (let position = 1; position <= amount; position += 1) {    
   createPromise(position, delay)
     .then(({ position, delay }) => {
     Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`); 
   })
     .catch(({ position, delay }) => {
     Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
-  });
+    });
+     delay += step;
   } 
 }
 
