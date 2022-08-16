@@ -13,7 +13,6 @@ const refs = {
   seconds: document.querySelector('span[data-seconds]'),
 };
 
-
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
@@ -61,7 +60,6 @@ class Timer {
       }
     }, 1000);
   }
-
 
   updateComponentsTimer({ days, hours, minutes, seconds }) {     
     refs.days.textContent = days;
